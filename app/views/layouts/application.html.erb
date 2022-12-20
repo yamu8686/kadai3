@@ -23,29 +23,48 @@
           <div class="navbar-collapse collapse show" id="navbarNavDropdown"style>
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-      　         <li>
-      　            <%= link_to 'Home', user_path(current_user.id) %>
-      　         </li>
                 <li>
-                   <%= link_to"Log out",destroy_user_session_path, method: :delete %>
+                  <%= link_to 'Home', user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to 'Users', users_path %>
+                </li>
+                <li>
+                  <%= link_to 'Books', books_path %>
+                </li>
+                <li>
+                  <%= link_to"Log out",destroy_user_session_path, method: :delete %>
                 </li>
               <% else %>
                 <li>
-                   <%= link_to 'Home', user_path(current_user.id) %>
+                  <%= link_to 'Home', root_path %>
+                </li>
+                <li>
+                  <%= link_to 'About', about_path %>
                 </li>
                 <li>
                    <%= link_to"Sign up", new_user_registration_path %>
                 </li>
                 <li>
-                   <%= link_to"Log in", new_user_session_path %>
+                   <%= link_to"Log in", user_session_path %>
                 </li>
               <% end %>
             </ul>
           </div>
         </div>
       </nav>
-      
     </header>
+
     <%= yield %>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
