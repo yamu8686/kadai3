@@ -1,7 +1,35 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <%= image_tag @book.user.get_profile_image(100,100) %>
+      <table class="table">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>name</th>
+            <th><%= book.user.name %></th>
+          </tr>
+          <tr>
+            <th>introudaction</th>
+            <th></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
   <% if @user == :users %>
-    <p><%= link_to <i class="fas fa-user-cog"></i>, edit_user_path(@user) %></p>
+    <p><%= link_to , edit_user_path(@user) do %>
+    <i class="fas fa-user-cog"></i>
+    <% end %>
+    </p>
   <% end %>
 </div>
