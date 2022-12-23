@@ -5,7 +5,7 @@
       <%= image_tag   current_user.get_profile_image(100,100) %>
       <table class="table">
         <tbody>
-           <% @books.each do |book| %>
+          <% @books.each do |book| %>
           <tr></tr>
           <tr>
             <th>name</th>
@@ -13,7 +13,7 @@
           </tr>
           <tr>
             <th>introduction</th>
-            <th><%= book.body %></th>
+            <th><%= @book.introduction %></th>
           </tr>
           <% end %>
         </tbody>
