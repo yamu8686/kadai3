@@ -8,7 +8,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :encrypted_password, null: false, default: ""
 
       t.string :name
-      t.string :introduction
       t.string :password_digest
 
 

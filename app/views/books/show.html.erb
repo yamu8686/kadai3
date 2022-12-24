@@ -1,17 +1,19 @@
-<%= render 'list', books: @books %>
-
-<div class="col-md-8 offset-md-1">
-  <h2>Book detail</h2>
-  <table class="table">
-    <tbody>
-      <tr>
-        <td><%= image_tag current_user.get_profile_image(100,100) %><br><%= link_to current_user.name, book_path(book.id) %></td>
-        <td><%= link_to book.title, book_path(book.id) %></td>
-        <td><%= book.body %></td>
-        <td><%= link_to "Edit", edit_book_path %></td>
-        <td><%= link_to "Destroy",book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか?" %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div>
+    <%= flash[:notice] %>
+  </div>
+  <%= render 'list', books: @books %>
+  <div class="col-md-8 offset-md-1">
+    <h2>Book detail</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><%= image_tag current_user.get_profile_image(100,100) %><br><%= link_to current_user.name, book_path(@book.id) %></td>
+          <td><%= link_to @book.title, book_path(@book.id) %></td>
+          <td><%= @book.body %></td>
+          <td><%= link_to "Edit", edit_book_path %></td>
+          <td><%= link_to "Destroy",book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 

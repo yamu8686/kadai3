@@ -5,18 +5,26 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-     @user = User.new
+    @user = User.new
   end
 
   def show
+    @book = Book.new
     @user = User.find(params[:id])
-    @users = User.all
+    @books = @user.books
   end
 
   def update
     user = User.find(params[:id])
     user.update(user_params)
+    flash[:notice] = 'You have created user successfully.'
     redirect_to user_path(user.id)
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to users_path(current_user.id)
   end
 
    private
