@@ -22,11 +22,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user.id),notice: 'You have created user successfully.'
     else
      flash[:alert]
-     @user = User.all
      render :edit
     end
   end
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     if @user != current_user
-    redirect_to(root_path)
+    redirect_to(user_path(current_user.id))
     end
   end
 end
